@@ -26,7 +26,7 @@ public class User {
     private KwSurvey kwSurvey;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<TeamJoin> planJoins = new ArrayList<>();
+    private List<TeamJoin> teamJoins = new ArrayList<>();
 
     @Column(name = "user_email")
     private String email;
