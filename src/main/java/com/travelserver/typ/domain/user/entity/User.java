@@ -28,19 +28,27 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<TeamJoin> planJoins = new ArrayList<>();
 
+    @Column(name = "user_email")
     private String email;
 
+    @Column(name = "user_password")
     private String password;
 
+    @Column(name = "user_name")
     private String name;
 
+    @Column(name = "user_birthdate")
     private Date brithDate;
 
+    @Column(name = "user_phonenum")
     private String phoneNum;
 
+    @Column(name = "user_gender")
     private boolean gender;
 
+    @Column(name = "user_status")
     private boolean status;
 
+    @Column(name = "user_image")
     private String userImg;
 }
