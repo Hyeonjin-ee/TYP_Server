@@ -17,14 +17,17 @@ public class Area {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "area_id")
     private int areaId;
-
     @OneToOne(mappedBy = "place")
     private Place place;
 
+    @Column(name = "area_name")
     private int areaName;
-    
+
+    @Column(name = " area_address")
     private String areaAddress;
 
-    private int selectedNum;
+    @Column(name = "area_selectednum")
+    private boolean selectedNum;
+
 
 }

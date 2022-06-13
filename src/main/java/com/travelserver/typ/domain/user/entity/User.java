@@ -20,27 +20,17 @@ public class User {
     @Id @GeneratedValue
     @Column(name = "user_id")
     private int userId;
-
     @OneToOne
     @JoinColumn(name = "kw_id")
     private KwSurvey kwSurvey;
-
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<TeamJoin> planJoins = new ArrayList<>();
-
     private String email;
-
     private String password;
-
     private String name;
-
     private Date brithDate;
-
     private String phoneNum;
-
     private boolean gender;
-
     private boolean status;
-
     private String userImg;
 }
