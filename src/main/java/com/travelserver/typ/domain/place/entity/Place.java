@@ -27,10 +27,16 @@ public class Place {
     @JoinColumn(name = "area_id")
     private Area area;
 
+    @Column(name = "place_name")
     private String placeName;
 
+    @Column(name = "place_description")
     private String placeDescription;
 
+    @Column(name = "place_address")
+    private String placeAddress;
+
+    @Column(name = "place_image")
     private String placeImage;
 
 }
