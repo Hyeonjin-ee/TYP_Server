@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Table(name = "\"team_join\"")
+@Table(name = "team_join")
 public class TeamJoin {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)

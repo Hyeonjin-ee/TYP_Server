@@ -11,13 +11,14 @@ import javax.persistence.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Table(name = "\"area\"")
+@Table(name = "area")
 public class Area {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "area_id")
     private int areaId;
-    @OneToOne(mappedBy = "place")
+
+    @OneToOne(mappedBy = "area")
     private Place place;
 
     @Column(name = "area_name")

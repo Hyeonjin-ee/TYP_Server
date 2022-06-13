@@ -12,7 +12,7 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Table(name = "\"team\"")
+@Table(name = "team")
 public class Team {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,6 +20,6 @@ public class Team {
     private int teamId;
 
     @OneToMany(mappedBy = "team", cascade = CascadeType.ALL)
-    private List<TeamJoin> teamJoins = new ArrayList<>();
+    private List<TeamJoin> teamjoins = new ArrayList<>();
 
 }

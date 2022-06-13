@@ -14,23 +14,28 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Table(name = "\"keyword\"")
+@Table(name = "keyword")
 public class KwSurvey {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "kw_id")
     private long keywordId;
-    @OneToOne(mappedBy = "keyword")
+
+    @OneToOne(mappedBy = "kwSurvey")
     private User user;
-    @OneToMany(mappedBy = "place", cascade = CascadeType.ALL)
+
+    @OneToMany(mappedBy = "kwSurvey", cascade = CascadeType.ALL)
     private List<Place> places = new ArrayList<>();
+
     @Column(name = "kw_withnum")
     private int withNum;
 
     @Column(name = "kw_age")
     private int age;
+
     @Column(name = "kw_house")
     private int houseStyle;
+
     @Column(name = "kw_foodprice")
     private int foodPrice;
 

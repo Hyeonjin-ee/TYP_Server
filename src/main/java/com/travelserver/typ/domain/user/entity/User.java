@@ -14,10 +14,10 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Table(name = "\"user\"")
+@Table(name = "user")
 public class User {
 
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "user_id")
     private int userId;
 
@@ -26,12 +26,12 @@ public class User {
     private KwSurvey kwSurvey;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<TeamJoin> teamJoins = new ArrayList<>();
+    private List<TeamJoin> teamjoins = new ArrayList<>();
 
     @Column(name = "user_email")
     private String email;
 
-    @Column(name = "user_password")
+    @Column(name = "user_pwd")
     private String password;
 
     @Column(name = "user_name")
