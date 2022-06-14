@@ -19,4 +19,5 @@ public class UserService {
     public User join(UserJoinRequestDto dto) {
         return userRepository.save(dto.toEntity());
     }
+
 }

@@ -7,12 +7,14 @@ import com.travelserver.typ.domain.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/users")
 public class UserController {
 
-    private  final UserService userService;
+    private final UserService userService;
 
     // 회원 가입
     @PostMapping("join")
@@ -21,7 +23,7 @@ public class UserController {
         User user = userService.join(dto);
 
         UserJoinRequestDto userInfoInDB = UserJoinRequestDto.builder()
-                .brithDate(user.getBrithDate())
+//                .brithDate(user.getBrithDate())
                 .email(user.getEmail())
                 .gender(user.isGender())
                 .name(user.getName())

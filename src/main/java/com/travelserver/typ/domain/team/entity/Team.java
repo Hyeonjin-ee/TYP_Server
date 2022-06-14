@@ -1,8 +1,5 @@
 package com.travelserver.typ.domain.team.entity;
 
-<<<<<<< Updated upstream
-public class Team {
-=======
 import com.travelserver.typ.domain.teamjoin.entity.TeamJoin;
 import lombok.*;
 
@@ -25,5 +22,4 @@ public class Team {
 //    @OneToMany(mappedBy = "team", cascade = CascadeType.ALL, targetEntity = TeamJoin.class)
 //    private List<TeamJoin> teamJoins = new ArrayList<>();
 
->>>>>>> Stashed changes
 }

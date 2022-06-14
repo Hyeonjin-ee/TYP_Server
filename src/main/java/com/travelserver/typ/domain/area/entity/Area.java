@@ -1,8 +1,5 @@
 package com.travelserver.typ.domain.area.entity;
 
-<<<<<<< Updated upstream
-public class Area {
-=======
 import com.travelserver.typ.domain.place.entity.Place;
 import com.travelserver.typ.domain.user.entity.User;
 import lombok.*;
@@ -34,6 +31,4 @@ public class Area {
     @Column(name = "area_selectednum")
     private boolean selectedNum;
 
-
->>>>>>> Stashed changes
 }

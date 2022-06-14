@@ -1,8 +1,6 @@
 package com.travelserver.typ.domain.kwsurvey.entity;
 
-<<<<<<< Updated upstream
-public class KwSurvey {
-=======
+
 import com.travelserver.typ.domain.place.entity.Place;
 import com.travelserver.typ.domain.teamjoin.entity.TeamJoin;
 import com.travelserver.typ.domain.user.entity.User;
@@ -19,8 +17,8 @@ import java.util.List;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "keyword")
 public class KwSurvey {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "kw_id")
     private long keywordId;
 
@@ -68,5 +66,4 @@ public class KwSurvey {
     @Column(name="kw_food")
     private int food;
 
->>>>>>> Stashed changes
 }
