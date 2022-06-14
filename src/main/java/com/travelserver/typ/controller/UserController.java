@@ -1,14 +1,12 @@
 package com.travelserver.typ.controller;
 
-import com.travelserver.typ.domain.user.dto.request.UserJoinRequestDTO;
-import com.travelserver.typ.domain.user.dto.response.UserJoinResponseDTO;
+import com.travelserver.typ.domain.user.dto.request.UserJoinRequestDto;
+import com.travelserver.typ.domain.user.dto.response.UserJoinResponseDto;
 import com.travelserver.typ.domain.user.entity.User;
 import com.travelserver.typ.domain.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -21,10 +19,10 @@ public class UserController {
     // 회원 가입
     @PostMapping("/join")
     @ResponseBody
-    public UserJoinResponseDTO join(@RequestBody UserJoinRequestDTO dto) {
+    public UserJoinResponseDto join(@RequestBody UserJoinRequestDto dto) {
         User user = userService.join(dto);
 
-        UserJoinRequestDTO userInfoInDB = UserJoinRequestDTO.builder()
+        UserJoinRequestDto userInfoInDB = UserJoinRequestDto.builder()
                 .birthDate(user.getBirthDate())
                 .email(user.getEmail())
                 .gender(user.isGender())
@@ -33,7 +31,7 @@ public class UserController {
                 .phoneNum(user.getPhoneNum())
                 .build();
 
-        UserJoinResponseDTO responseDto = UserJoinResponseDTO.builder()
+        UserJoinResponseDto responseDto = UserJoinResponseDto.builder()
                 .msg("가입이 성공적으로 완료되었습니다 :)")
                 .userId(user.getUserId())
                 .data(userInfoInDB)

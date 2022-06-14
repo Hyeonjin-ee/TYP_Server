@@ -17,7 +17,6 @@ import java.util.List;
 @Table(name = "keyword")
 public class KwSurvey {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "kw_id")
     private long keywordId;
 

@@ -1,6 +1,6 @@
 package com.travelserver.typ.domain.user.service;
 
-import com.travelserver.typ.domain.user.dto.request.UserJoinRequestDTO;
+import com.travelserver.typ.domain.user.dto.request.UserJoinRequestDto;
 import com.travelserver.typ.domain.user.entity.User;
 import com.travelserver.typ.domain.user.respository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -17,7 +17,7 @@ public class UserService {
     private final UserRepository userRepository;
 
     @Transactional
-    public User join(UserJoinRequestDTO dto){
+    public User join(UserJoinRequestDto dto){
         return userRepository.save(dto.toEntity());
     }
 }
