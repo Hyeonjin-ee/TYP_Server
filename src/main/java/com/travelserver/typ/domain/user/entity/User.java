@@ -38,7 +38,7 @@ public class User {
     private String name;
 
     @Column(name = "user_birthdate")
-    private Date brithDate;
+    private Date birthDate;
 
     @Column(name = "user_phonenum")
     private String phoneNum;
@@ -51,4 +51,5 @@ public class User {
 
     @Column(name = "user_image")
     private String userImg;
+
 }
