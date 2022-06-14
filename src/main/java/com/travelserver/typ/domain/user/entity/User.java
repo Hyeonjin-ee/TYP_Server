@@ -1,16 +1,10 @@
 package com.travelserver.typ.domain.user.entity;
 
-<<<<<<< Updated upstream
-public class User {
-=======
 import com.travelserver.typ.domain.kwsurvey.entity.KwSurvey;
-import com.travelserver.typ.domain.teamjoin.entity.TeamJoin;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @Getter
@@ -20,7 +14,8 @@ import java.util.List;
 @Table(name = "user")
 public class User {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     @Column(name = "user_id")
     private int userId;
 
@@ -55,5 +50,4 @@ public class User {
     @Column(name = "user_image")
     private String userImg;
 
->>>>>>> Stashed changes
 }
