@@ -1,7 +1,7 @@
 package com.travelserver.typ.domain.kwsurvey.entity;
 
+
 import com.travelserver.typ.domain.place.entity.Place;
-import com.travelserver.typ.domain.teamjoin.entity.TeamJoin;
 import com.travelserver.typ.domain.user.entity.User;
 import lombok.*;
 
@@ -16,11 +16,13 @@ import java.util.List;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "keyword")
 public class KwSurvey {
+
     @Id
     @Column(name = "kw_id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long keywordId;
 
-    @OneToOne(mappedBy = "kwSurvey")
+    @OneToOne(mappedBy = "kwSurvey", cascade = CascadeType.ALL)
     private User user;
 
     @OneToMany(mappedBy = "kwSurvey", cascade = CascadeType.ALL)

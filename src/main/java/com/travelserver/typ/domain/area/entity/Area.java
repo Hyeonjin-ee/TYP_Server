@@ -1,7 +1,6 @@
 package com.travelserver.typ.domain.area.entity;
 
 import com.travelserver.typ.domain.place.entity.Place;
-import com.travelserver.typ.domain.user.entity.User;
 import lombok.*;
 
 import javax.persistence.*;
@@ -27,8 +26,13 @@ public class Area {
     @Column(name = " area_address")
     private String areaAddress;
 
+    @Column(name = "area_x")
+    private String areaXCoordinate;
+
+    @Column(name = "area_y")
+    private String areaYCoordinate;
+
     @Column(name = "area_selectednum")
     private boolean selectedNum;
-
 
 }

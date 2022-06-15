@@ -5,7 +5,6 @@ import com.travelserver.typ.domain.user.dto.response.UserJoinResponseDto;
 import com.travelserver.typ.domain.user.entity.User;
 import com.travelserver.typ.domain.user.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -13,11 +12,10 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/users")
 public class UserController {
 
-    @Autowired
-    UserService userService;
+    private final UserService userService;
 
     // 회원 가입
-    @PostMapping("/join")
+    @PostMapping("join")
     @ResponseBody
     public UserJoinResponseDto join(@RequestBody UserJoinRequestDto dto) {
         User user = userService.join(dto);
@@ -38,8 +36,7 @@ public class UserController {
                 .build();
 
         return responseDto;
+
     }
-
-
 
 }

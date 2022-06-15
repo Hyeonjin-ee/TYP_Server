@@ -11,6 +11,7 @@ import lombok.Setter;
 @Setter
 @Builder
 public class UserJoinResponseDto {
+
     String msg;
     Integer userId;
     UserJoinRequestDto data;

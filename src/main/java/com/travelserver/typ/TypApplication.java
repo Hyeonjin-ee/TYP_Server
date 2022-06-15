@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 @SpringBootApplication
-@EnableBatchProcessing
+//@EnableBatchProcessing
 public class TypApplication {
 
 	public static void main(String[] args) {
