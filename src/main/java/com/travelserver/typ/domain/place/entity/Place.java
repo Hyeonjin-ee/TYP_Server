@@ -40,4 +40,10 @@ public class Place {
     @Column(name = "place_image")
     private String placeImage;
 
+    @Column(name = "place_x")
+    private String placeXCoordinate;
+
+    @Column(name = "place_y")
+    private String placeYCoordinate;
+
 }

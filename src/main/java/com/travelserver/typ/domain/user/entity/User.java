@@ -14,7 +14,9 @@ import java.util.Date;
 @Table(name = "user")
 public class User {
 
-    @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Id
+    // Field 'user_id' doesn't have a default value error 해결 : IDENTITY -> AUTO
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id")
     private int userId;
 
@@ -48,5 +50,10 @@ public class User {
 
     @Column(name = "user_image")
     private String userImg;
+
+
+    public void update(KwSurvey kwSurvey) {
+        this.kwSurvey = kwSurvey;
+    }
 
 }
