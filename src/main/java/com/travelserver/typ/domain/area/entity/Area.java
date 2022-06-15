@@ -28,7 +28,7 @@ public class Area {
     @Column(name = " area_address")
     private String areaAddress;
 
-    @Column(name = "area_selectednum")
-    private boolean selectedNum;
+//    @Column(name = "area_selectednum")
+//    private boolean selectedNum;
 
 }
