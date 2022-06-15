@@ -14,6 +14,6 @@ public class AreaCreateResponseDto {
 
     String areaMsg;
     int areaId;
-    boolean isSelected;
+    int placeId;
     AreaCreateRequestDto data;
 }

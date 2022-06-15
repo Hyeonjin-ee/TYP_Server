@@ -20,16 +20,16 @@ public class AreaCreateRequestDto {
     private String areaAddress;
     private String areaXCoordinate;
     private String areaYCoordinate;
-    private boolean selectedNum;
 
-    // 지역선택 -> 값에 대한 내용이 전달
+
     public Area toEntity(){
         return Area.builder()
                 .areaName(areaName)
                 .areaAddress(areaAddress)
                 .areaXCoordinate(areaXCoordinate)
                 .areaYCoordinate(areaYCoordinate)
-                .selectedNum((selectedNum))
                 .build();
     }
-}
+
+    }
+

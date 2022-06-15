@@ -17,7 +17,9 @@ import java.util.List;
 @Table(name = "user")
 public class User {
 
-    @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Id
+    // Field 'user_id' doesn't have a default value error 해결 : IDENTITY -> AUTO
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id")
     private int userId;
 
@@ -25,8 +27,8 @@ public class User {
     @JoinColumn(name = "kw_id")
     private KwSurvey kwSurvey;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<TeamJoin> teamjoins = new ArrayList<>();
+//    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+//    private List<TeamJoin> teamjoins = new ArrayList<>();
 
     @Column(name = "user_email")
     private String email;
@@ -51,5 +53,10 @@ public class User {
 
     @Column(name = "user_image")
     private String userImg;
+
+
+    public void update(KwSurvey kwSurvey) {
+        this.kwSurvey = kwSurvey;
+    }
 
 }

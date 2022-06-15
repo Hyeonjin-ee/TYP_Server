@@ -19,14 +19,13 @@ public class KwSurvey {
 
     @Id
     @Column(name = "kw_id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private long keywordId;
 
     @OneToOne(mappedBy = "kwSurvey", cascade = CascadeType.ALL)
     private User user;
 
-    @OneToMany(mappedBy = "kwSurvey", cascade = CascadeType.ALL)
-    private List<Place> places = new ArrayList<>();
+//    @OneToMany(mappedBy = "kwSurvey", cascade = CascadeType.ALL)
+//    private List<Place> places = new ArrayList<>();
 
     @Column(name = "kw_withnum")
     private int withNum;

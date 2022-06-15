@@ -46,6 +46,8 @@ public class Place {
     @Column(name = "place_y")
     private String placeYCoordinate;
 
-
-
+    public void update(Area area){
+        this.area = area;
+    }
 }
+
