@@ -1,6 +1,7 @@
 package com.travelserver.typ.domain.place.service;
 
 import com.travelserver.typ.domain.area.entity.Area;
+import com.travelserver.typ.domain.place.dto.request.PlaceCreateRequestDto;
 import com.travelserver.typ.domain.place.entity.Place;
 import com.travelserver.typ.domain.place.repository.PlaceRepository;
 import com.travelserver.typ.domain.user.entity.User;
@@ -16,6 +17,18 @@ public class PlaceService {
 
     @Autowired
     private final PlaceRepository placeRepository;
+
+    public Place createPlace(PlaceCreateRequestDto dto){
+        Place place = Place.builder()
+                .placeName(dto.getPlaceName())
+                .placeAddress(dto.getPlaceAddress())
+                .placeDescription(dto.getPlaceDescription())
+                .placeXCoordinate(dto.getPlaceXCoordinate())
+                .placeYCoordinate(dto.getPlaceYCoordinate())
+                .build();
+
+        return placeRepository.save(place);
+    }
 
     public Place getPlace(Integer placeId) {
         Place place = placeRepository.findById(placeId)

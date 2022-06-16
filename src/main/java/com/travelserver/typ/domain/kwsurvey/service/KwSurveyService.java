@@ -15,9 +15,7 @@ public class KwSurveyService {
 
     @Autowired
     private final KwSurveyRepository kwSurveyRepository;
-
-    @Transactional
-    public KwSurvey createKwSurvey(KwSurveyCreateRequestDto dto) {
+    public Long createKwId(KwSurveyCreateRequestDto dto){
         String keywordIdString = Integer.toString(dto.getWithNum())
                 + Integer.toString(dto.getAge())
                 + Integer.toString(dto.getHouseStyle())
@@ -32,10 +30,13 @@ public class KwSurveyService {
                 + Integer.toString(dto.getFood());
 
         Long keywordId = Long.parseLong(keywordIdString);
+        return keywordId;
+    }
 
-
+    @Transactional
+    public KwSurvey createKwSurvey(KwSurveyCreateRequestDto dto) {
         KwSurvey kwSurvey =  KwSurvey.builder()
-                .keywordId(keywordId)
+                .keywordId(createKwId(dto))
                 .withNum(dto.getWithNum())
                 .age(dto.getAge())
                 .houseStyle(dto.getHouseStyle())

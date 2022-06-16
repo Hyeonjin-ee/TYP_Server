@@ -1,6 +1,8 @@
 package com.travelserver.typ.domain.user.service;
 
+import com.travelserver.typ.domain.kwsurvey.dto.request.KwSurveyCreateRequestDto;
 import com.travelserver.typ.domain.kwsurvey.entity.KwSurvey;
+import com.travelserver.typ.domain.kwsurvey.service.KwSurveyService;
 import com.travelserver.typ.domain.user.dto.request.UserJoinRequestDto;
 import com.travelserver.typ.domain.user.dto.response.UserLoginResponseDto;
 import com.travelserver.typ.domain.user.entity.User;
@@ -46,5 +48,7 @@ public class UserService {
         user.update(kwSurvey);
         return user;
     }
+
+
 
 }

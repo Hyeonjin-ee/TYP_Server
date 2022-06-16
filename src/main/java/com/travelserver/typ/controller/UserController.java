@@ -19,6 +19,7 @@ public class UserController {
     private final UserService userService;
 
     // 회원 가입
+    @CrossOrigin("*")
     @PostMapping("join")
     @ResponseBody
     public UserJoinResponseDto join(@RequestBody UserJoinRequestDto dto) {
