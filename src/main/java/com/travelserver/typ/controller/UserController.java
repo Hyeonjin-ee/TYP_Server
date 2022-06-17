@@ -17,6 +17,7 @@ import java.util.Date;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/users")
+@CrossOrigin("*")
 public class UserController {
 
     @Autowired
@@ -52,7 +53,7 @@ public class UserController {
     @PostMapping("my")
     @ResponseBody
     public UserLoginResponseDto login(@RequestBody UserLoginRequestDto dto) {
-        return userService.login(dto.getEmail());
+        return userService.login(dto);
     }
 
 }

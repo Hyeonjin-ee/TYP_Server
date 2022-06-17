@@ -22,11 +22,9 @@ public class KwSurvey {
     @Column(name = "kw_id")
     private long keywordId;
 
-    // KWSurvey로 해야 함!! 자바 변수명으로 해야 함, 테이블 명이 아니라
 //    @OneToOne(mappedBy = "keyword", targetEntity = User.class)
 //    private User user;
 //
-//    // mappedBy = "place"로 되어 있었음
 //    @OneToMany(mappedBy = "keyword", cascade = CascadeType.ALL, targetEntity = Place.class)
 //    private List<Place> places = new ArrayList<>();
 
@@ -65,5 +63,9 @@ public class KwSurvey {
 
     @Column(name="kw_food")
     private int food;
+
+//    public void update (User user) {
+//        this.user = user;
+//    }
 
 }

@@ -13,15 +13,17 @@ import lombok.Setter;
 @Builder
 public class UserLoginResponseDto {
 
-    String msg;
+    Boolean loginSucceed;
     Integer userId;
     String email;
+    String password;
 
     public static UserLoginResponseDto toDto(User user) {
         return UserLoginResponseDto.builder()
-                .msg("로그인 성공했습니다.")
+                .loginSucceed(true)
                 .userId(user.getUserId())
                 .email(user.getEmail())
+                .password(user.getPassword())
                 .build();
     }
 

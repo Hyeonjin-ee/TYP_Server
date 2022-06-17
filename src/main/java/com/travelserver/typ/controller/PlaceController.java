@@ -10,7 +10,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
@@ -20,24 +22,38 @@ public class PlaceController {
     private final UserService userService;
     private final PlaceService placeService;
 
-    // keywordId를 줄 필요가 있을까? 어차피 유저에 키워드 정보 담겨있으니까...?
-    @GetMapping("{userId}")
+    @GetMapping("{userId}/{keywordId}")
     @ResponseBody
     public PlaceListByUserResponseDto getPlaceListByUser(@PathVariable("userId") Integer userId
+            , @PathVariable("keywordId") Long keywordId
             , @RequestBody PlaceListByUserRequestDto dto) {
 
         // 유저 존재 유무 판단
-        // 아이디로 회원, 비회원 판단은 아직 구현 x
         User user = userService.getUser(userId);
 
-        // 유저가 설정한 키워드에 맞는 장소(place)들을 list에 add
-        /* 큰 기준 */
-        // 숙소 - houseStyle
-        // 먹거리 - foodPrice, food
-        // 놀거리 - 그 외
+        List<Place> placeList = placeService.getPlaceByArea(dto);
 
-        placeService.getPlaceByUsersKeyword(userId, dto);
+        List<Place> housePlaceByUser = placeService.getPlaceByUserKWAboutHouse(userId, keywordId, placeList);
+        List<Place> foodPlaceByUser = placeService.getPlaceByUserKWAboutFood(userId, keywordId, placeList);
+        List<Place> playPlaceByUser = placeService.getPlaceByUserKWAboutPlay(userId, keywordId, placeList);
 
-        return null;
+
+        PlaceListByUserRequestDto requestDto = PlaceListByUserRequestDto.builder()
+                .userId(userId)
+                .keywordId(keywordId)
+                .areaId(dto.getAreaId())
+                .build();
+
+
+        PlaceListByUserResponseDto responseDto = PlaceListByUserResponseDto.builder()
+                .msg("사용자 키워드에 따른 여행지 리스트입니다.")
+                .dto(requestDto)
+                .allPlaces(placeList)
+                .housePlaces(housePlaceByUser)
+                .foodPlaces(foodPlaceByUser)
+                .playPlaces(playPlaceByUser)
+                .build();
+
+        return responseDto;
     }
 }

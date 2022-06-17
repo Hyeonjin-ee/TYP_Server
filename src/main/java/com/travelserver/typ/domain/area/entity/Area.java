@@ -18,7 +18,7 @@ public class Area {
     @Column(name = "area_id")
     private int areaId;
 
-//    // mappedBy = "place"로 되어 있었음
+    // mappedBy = "place"로 되어 있었음
 //    @OneToOne(mappedBy = "area", targetEntity = Place.class)
 //    private Place place;
 

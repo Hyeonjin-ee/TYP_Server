@@ -20,7 +20,7 @@ public class Place {
     @Column(name = "place_id")
     private int placeId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "kw_id")
     private KwSurvey kwSurvey;
 

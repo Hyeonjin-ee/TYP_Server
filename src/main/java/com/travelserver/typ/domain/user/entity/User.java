@@ -54,6 +54,7 @@ public class User {
 
     public void update(KwSurvey kwSurvey) {
         this.kwSurvey = kwSurvey;
+//        kwSurvey.update(this);
     }
 
 }
