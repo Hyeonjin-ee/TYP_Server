@@ -4,6 +4,7 @@ import com.travelserver.typ.domain.area.entity.Area;
 import com.travelserver.typ.domain.area.repository.AreaRepository;
 import com.travelserver.typ.domain.kwsurvey.entity.KwSurvey;
 import com.travelserver.typ.domain.kwsurvey.repository.KwSurveyRepository;
+import com.travelserver.typ.domain.place.dto.request.PlaceCreateRequestDto;
 import com.travelserver.typ.domain.place.dto.request.PlaceListByUserRequestDto;
 import com.travelserver.typ.domain.place.entity.Place;
 import com.travelserver.typ.domain.place.repository.PlaceRepository;
@@ -14,6 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -30,6 +32,32 @@ public class PlaceService {
     private final KwSurveyRepository kwSurveyRepository;
     private final PlaceRepository placeRepository;
     private final AreaRepository areaRepository;
+
+    public Place createPlace(PlaceCreateRequestDto dto){
+        Place place = Place.builder()
+                .placeName(dto.getPlaceName())
+                .placeAddress(dto.getPlaceAddress())
+                .placeDescription(dto.getPlaceDescription())
+                .placeXCoordinate(dto.getPlaceXCoordinate())
+                .placeYCoordinate(dto.getPlaceYCoordinate())
+                .build();
+
+        return placeRepository.save(place);
+    }
+
+    public Place getPlace(Integer placeId) {
+        Place place = placeRepository.findById(placeId)
+                .orElseThrow(() -> {
+                    throw new IllegalArgumentException("선택할 수 없는 지역입니다.");
+                });
+        return place;
+    }
+
+//    public Place updatePlaceAreaId(Area area, Place place){
+//        place.update(area);
+//        return place;
+//    }
+
 
 
     public List<Place> getPlaceByArea(PlaceListByUserRequestDto dto) {
