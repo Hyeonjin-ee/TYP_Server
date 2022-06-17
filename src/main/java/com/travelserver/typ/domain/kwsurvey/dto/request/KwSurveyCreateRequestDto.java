@@ -1,9 +1,6 @@
 package com.travelserver.typ.domain.kwsurvey.dto.request;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Column;
 
@@ -11,6 +8,8 @@ import javax.persistence.Column;
 @Getter
 @Setter
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class KwSurveyCreateRequestDto {
 
 //    private int userId;

@@ -1,10 +1,7 @@
 package com.travelserver.typ.domain.user.dto.request;
 
 import com.travelserver.typ.domain.user.entity.User;
-import lombok.Builder;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Date;
 
@@ -13,6 +10,8 @@ import java.util.Date;
 @Getter
 @Setter
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserJoinRequestDto {
     private String email;
     private String password;
@@ -20,6 +19,7 @@ public class UserJoinRequestDto {
     private Date birthDate;
     private String phoneNum;
     private boolean gender;
+
 
     // 회원 가입
     public User toEntity() {

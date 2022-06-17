@@ -1,9 +1,6 @@
 package com.travelserver.typ.domain.user.dto.request;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Date;
 
@@ -11,6 +8,8 @@ import java.util.Date;
 @Getter
 @Setter
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserLoginRequestDto {
 
     private String email;

@@ -69,7 +69,8 @@ public class PlaceService {
 //                    throw new IllegalArgumentException("존재하지 않는 지역입니다.");
 //                });
 
-        List<Place> placeList = placeRepository.findByArea_areaId(areaId);
+        List<Place> placeList = new ArrayList<Place>();
+        placeList = placeRepository.findByArea_areaId(areaId);
         if (placeList == null || placeList.isEmpty())
             throw new NullPointerException("존재하지 않는 지역입니다.");
 
@@ -79,7 +80,7 @@ public class PlaceService {
 
     public List<Place> getPlaceByUserKWAboutHouse(int userId, long keywordId, List<Place> placeList) {
 
-        List<Place> housePlaceList = Collections.emptyList();
+        List<Place> housePlaceList = new ArrayList<Place>();
 
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> {
@@ -107,7 +108,7 @@ public class PlaceService {
 
     public List<Place> getPlaceByUserKWAboutFood(int userId, long keywordId, List<Place> placeList) {
 
-        List<Place> foodPlaceList = Collections.emptyList();
+        List<Place> foodPlaceList = new ArrayList<Place>();
 
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> {
@@ -135,7 +136,7 @@ public class PlaceService {
 
     public List<Place> getPlaceByUserKWAboutPlay(int userId, long keywordId, List<Place> placeList) {
 
-        List<Place> playPlaceList = Collections.emptyList();
+        List<Place> playPlaceList = new ArrayList<Place>();
 
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> {

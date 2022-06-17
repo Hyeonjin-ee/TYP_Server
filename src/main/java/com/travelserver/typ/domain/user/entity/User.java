@@ -10,7 +10,7 @@ import java.util.Date;
 @Getter
 @Builder
 @AllArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor(access = AccessLevel.PUBLIC)
 @Table(name = "user")
 public class User {
 
@@ -18,38 +18,38 @@ public class User {
     // Field 'user_id' doesn't have a default value error 해결 : IDENTITY -> AUTO
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id")
-    private int userId;
+    public int userId;
 
     @OneToOne
     @JoinColumn(name = "kw_id")
-    private KwSurvey kwSurvey;
+    public KwSurvey kwSurvey;
 
 //    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, targetEntity = TeamJoin.class)
 //    private List<TeamJoin> teamJoins = new ArrayList<>();
 
     @Column(name = "user_email")
-    private String email;
+    public String email;
 
     @Column(name = "user_pwd")
-    private String password;
+    public String password;
 
     @Column(name = "user_name")
-    private String name;
+    public String name;
 
     @Column(name = "user_birthdate")
-    private Date birthDate;
+    public Date birthDate;
 
     @Column(name = "user_phonenum")
-    private String phoneNum;
+    public String phoneNum;
 
     @Column(name = "user_gender")
-    private boolean gender;
+    public boolean gender;
 
     @Column(name = "user_status")
-    private boolean status;
+    public boolean status;
 
     @Column(name = "user_image")
-    private String userImg;
+    public String userImg;
 
 
     public void update(KwSurvey kwSurvey) {
