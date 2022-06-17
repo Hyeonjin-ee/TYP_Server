@@ -10,7 +10,6 @@ import java.util.Optional;
 
 public interface PlaceRepository extends JpaRepository<Place, Integer> {
 
-    Optional<Place> findAllByArea(Area area);
-    List<Place> findByPlaceName(String name);
+    List<Place> findByArea_areaId(Integer areaId);
 
 }
