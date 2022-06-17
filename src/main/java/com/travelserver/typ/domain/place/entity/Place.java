@@ -16,7 +16,6 @@ import javax.persistence.*;
 public class Place {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "place_id")
     private int placeId;
 
@@ -49,5 +48,6 @@ public class Place {
     public void update(Area area){
         this.area = area;
     }
+
 }
 

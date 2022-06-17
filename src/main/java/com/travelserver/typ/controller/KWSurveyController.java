@@ -7,6 +7,7 @@ import com.travelserver.typ.domain.kwsurvey.service.KwSurveyService;
 import com.travelserver.typ.domain.user.entity.User;
 import com.travelserver.typ.domain.user.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -14,7 +15,9 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/keyword")
 public class KWSurveyController {
 
+    @Autowired
     private final KwSurveyService kwSurveyService;
+    @Autowired
     private final UserService userService;
 
     // 유저 키워드 설정
@@ -58,3 +61,4 @@ public class KWSurveyController {
         return responseDto;
     }
 }
+

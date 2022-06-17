@@ -1,7 +1,9 @@
 package com.travelserver.typ.domain.kwsurvey.service;
+
 import com.travelserver.typ.domain.kwsurvey.dto.request.KwSurveyCreateRequestDto;
 import com.travelserver.typ.domain.kwsurvey.entity.KwSurvey;
 import com.travelserver.typ.domain.kwsurvey.repository.KwSurveyRepository;
+import com.travelserver.typ.domain.user.entity.User;
 import com.travelserver.typ.domain.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +15,11 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(readOnly = true)
 public class KwSurveyService {
 
-    @Autowired
     private final KwSurveyRepository kwSurveyRepository;
-    public Long createKwId(KwSurveyCreateRequestDto dto){
+    private final UserRepository userRepository;
+
+    @Transactional
+    public KwSurvey createKwSurvey(KwSurveyCreateRequestDto dto) {
         String keywordIdString = Integer.toString(dto.getWithNum())
                 + Integer.toString(dto.getAge())
                 + Integer.toString(dto.getHouseStyle())
@@ -30,13 +34,10 @@ public class KwSurveyService {
                 + Integer.toString(dto.getFood());
 
         Long keywordId = Long.parseLong(keywordIdString);
-        return keywordId;
-    }
 
-    @Transactional
-    public KwSurvey createKwSurvey(KwSurveyCreateRequestDto dto) {
+
         KwSurvey kwSurvey =  KwSurvey.builder()
-                .keywordId(createKwId(dto))
+                .keywordId(keywordId)
                 .withNum(dto.getWithNum())
                 .age(dto.getAge())
                 .houseStyle(dto.getHouseStyle())
@@ -53,4 +54,5 @@ public class KwSurveyService {
 
         return kwSurveyRepository.save(kwSurvey);
     }
+
 }

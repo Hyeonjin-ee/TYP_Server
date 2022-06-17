@@ -19,7 +19,7 @@ public class Team {
     @Column(name = "team_id")
     private int teamId;
 
-    @OneToMany(mappedBy = "team", cascade = CascadeType.ALL)
-    private List<TeamJoin> teamjoins = new ArrayList<>();
+//    @OneToMany(mappedBy = "team", cascade = CascadeType.ALL)
+//    private List<TeamJoin> teamjoins = new ArrayList<>();
 
 }

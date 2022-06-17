@@ -16,12 +16,14 @@ public class UserLoginResponseDto {
     String msg;
     Integer userId;
     String email;
+    String password;
 
     public static UserLoginResponseDto toDto(User user) {
         return UserLoginResponseDto.builder()
                 .msg("로그인 성공했습니다.")
                 .userId(user.getUserId())
                 .email(user.getEmail())
+                .password(user.getPassword())
                 .build();
     }
 

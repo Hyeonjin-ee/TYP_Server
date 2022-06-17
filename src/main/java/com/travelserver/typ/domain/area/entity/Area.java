@@ -32,5 +32,4 @@ public class Area {
     @Column(name = "area_y")
     private String areaYCoordinate;
 
-
 }
